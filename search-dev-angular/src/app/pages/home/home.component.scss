@@ -1,0 +1,47 @@
+.home{
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  h1{
+    color: #0069CA;
+    font-size: 6rem;
+    text-transform: capitalize;
+    height: 5rem;
+    span{
+      color: #8C19D2;
+      text-transform: lowercase;
+    }
+  }
+
+  .search{
+    width: 60%;
+    gap: 1.25rem;
+    button{
+      height: min-content;
+      padding: 0.6rem 4rem;
+    }
+  }
+}
+
+@media (max-width: 768px)
+{
+  .home{
+    h1{
+      font-size: 3rem;
+      height:3rem
+    }
+
+    .search{
+      width: -webkit-fill-available;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    button{
+      display: none;
+    }
+  }
+}

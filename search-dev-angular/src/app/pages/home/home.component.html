@@ -1,0 +1,19 @@
+<section class="home">
+  <h1>Search <span>d_evs</span></h1>
+
+  <div class="search flex justify-center">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-icon matPrefix>search</mat-icon>
+      <input
+        [formControl]="search"
+        matInput
+        placeholder="Search"
+        (keypress)="enterPress($event)"
+      />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="navigate()">
+      Search
+    </button>
+  </div>
+</section>
