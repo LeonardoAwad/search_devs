@@ -1,0 +1,89 @@
+<div>
+  <section class="menu">
+    <div class="column-2">
+      <h1>Search <span>d_evs</span></h1>
+    </div>
+
+    <div class="flex column-4">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-icon matPrefix>search</mat-icon>
+        <input
+          [formControl]="search"
+          matInput
+          placeholder="Search"
+          (keypress)="enterPress($event)"
+        />
+      </mat-form-field>
+    </div>
+  </section>
+
+  <section class="user-section grid-template" *ngIf="user; else NoData">
+    <section class="user column-2">
+      <div class="user-content">
+        <div class="flex avatar">
+          <a [href]="user.html_url" target="_blank">
+            <img [src]="user.avatar_url" />
+          </a>
+          <a [href]="user.html_url" target="_blank">
+            <h2>{{ user.name }}</h2>
+            <span *ngIf="user?.login">@{{ user.login }}</span>
+          </a>
+        </div>
+        <p>
+          {{ user.bio }}
+        </p>
+        <div class="informations">
+          <div>
+            <mat-icon class="material-symbols-outlined">groups</mat-icon>
+            {{ user.followers }} seguidores
+          </div>
+          <div>
+            <mat-icon class="material-symbols-outlined">favorite</mat-icon>
+            {{ user.following }} seguindo
+          </div>
+
+          <div>
+            <mat-icon class="material-symbols-outlined">apartment</mat-icon>
+            {{ user.company }}
+          </div>
+          <div>
+            <mat-icon class="material-symbols-outlined">location_on</mat-icon>
+            {{ user.location }}
+          </div>
+          <div>
+            <mat-icon class="material-symbols-outlined">email</mat-icon>
+            {{ user.email }}
+          </div>
+          <a [href]="user.blog" target="_blank">
+            <mat-icon class="material-symbols-outlined">link</mat-icon>
+            {{ user.blog }}
+          </a>
+          <a
+            [href]="'https://twitter.com/' + user.twitter_username"
+            target="_blank"
+          >
+            <mat-icon class="material-symbols-outlined">
+              alternate_email</mat-icon
+            >
+            {{ user.twitter_username }}
+          </a>
+        </div>
+      </div>
+
+      <button mat-raised-button color="primary">
+        <a [href]="user.html_url" target="_blank"> Contato </a>
+      </button>
+    </section>
+    <section class="repo column-6">
+      <app-repository *ngFor="let repo of repositories" [repo]="repo">
+      </app-repository>
+    </section>
+  </section>
+</div>
+
+<ng-template #NoData>
+  <div class="nodata">
+    <span>Nenhum usuario foi encontrado.</span>
+    <mat-icon class="material-symbols-outlined">report</mat-icon>
+  </div>
+</ng-template>

@@ -1,0 +1,156 @@
+.menu{
+  @extend .grid-template;
+  padding: 1rem 5rem;
+  padding-bottom: 0rem;
+  h1{
+    color: #0069CA;
+    font-size: 2rem;
+    text-transform: capitalize;
+    span{
+      color: #8C19D2;
+      text-transform: lowercase;
+    }
+  }
+
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.user-section{
+  height: 90vh;
+  background-color: #fcfcfc;
+  padding: 1rem 5rem;
+}
+
+.grid-template{
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.repo, .user{
+  padding: 1.25rem;
+  margin-bottom: 4rem;
+}
+
+
+
+.user{
+  .user-content{
+    background-color: #fff;
+    padding: 1rem;
+    > p{
+      margin: 0.75rem 0;
+    }
+  }
+
+  img{
+    border-radius: 50%;
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+  }
+
+  .avatar{
+    gap: 1rem;
+    h2{
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    span{
+      color: #A0AEC0;
+    }
+  }
+
+  .informations{
+    > div, > a{
+      display: flex;
+      align-items: flex-end;
+    }
+
+    mat-icon{
+      margin-right: 0.25rem;
+    }
+    color: #4A5568;
+  }
+
+  button{
+    width: 100%;
+    margin-top: 2.25rem;
+  }
+}
+
+.repo{
+  overflow-y: auto;
+  background-color: #fff;
+
+}
+
+.column-{
+  &6{
+    grid-column: span 6;
+  }
+  &4{
+    grid-column: span 4;
+  }
+  &2{
+    grid-column: span 2;
+  }
+}
+
+.nodata{
+  text-align: center;
+  font-size: 1.25rem;
+  color: gray;
+  mat-icon{
+    width: 100%;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 1153px)
+{
+  .grid-template{
+    gap: unset;
+    grid-template-columns: repeat(auto-fit, minmax(100%, auto));
+  }
+  .column-{
+    &6,&4,&2{
+      grid-column: unset;
+    }
+  }
+  .informations{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(auto, 190px));
+  }
+  .user-section{
+    padding: 1rem 1rem;
+    height: unset;
+    button{
+      display: none;
+    }
+  }
+  .menu{
+    padding: 1rem 1rem;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
+  }
+  .user, .user-content{
+    background-color: #eaddff !important;
+  }
+  .repo{
+    overflow: unset;
+  }
+
+  .repo, .user{
+    margin-bottom: 0rem;
+  }
+
+
+}

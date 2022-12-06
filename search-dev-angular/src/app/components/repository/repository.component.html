@@ -1,0 +1,14 @@
+<div *ngIf="repo">
+  <h2>
+    <a [href]="repo?.clone_url" target="_blank">{{ repo.name }}</a>
+  </h2>
+  <p>{{ repo.description }}</p>
+  <span class="flex">
+    <mat-icon class="material-symbols-outlined">star</mat-icon>
+    {{ repo.stargazers_count }}
+    <span class="marker">
+      atualizado há {{ getLastDate(repo.updated_at) }} dias</span
+    >
+  </span>
+  <mat-divider></mat-divider>
+</div>

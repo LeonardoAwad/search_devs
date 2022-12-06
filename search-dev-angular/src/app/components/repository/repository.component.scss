@@ -1,0 +1,17 @@
+.marker{
+  padding-left: 0.25rem;
+  display: list-item;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+
+mat-divider{
+  margin: 1rem 0;
+}
